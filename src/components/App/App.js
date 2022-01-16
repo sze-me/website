@@ -4,6 +4,7 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Manatee from "../Manatee/Manatee";
 import Narwhal from "../Narwhal/Narwhal";
 import Whale from "../Whale/Whale";
+import NotFound from "../NotFound/NotFound";
 
 function App() {
   return (
@@ -34,8 +35,8 @@ function App() {
         <Routes>
           <Route path="/manatee" element={<Manatee />} />
           <Route path="/narwhal" element={<Narwhal />} />
-          <Route exact path="/whale" element={<Whale />} />
-          <Route path="/whale/:type" element={<Whale />} />
+          <Route path="/whale/*" element={<Whale />} />
+          {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
       </BrowserRouter>
     </div>

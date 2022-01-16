@@ -1,10 +1,13 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useMatch, Routes, Route, matchPath } from "react-router-dom";
 import Beluga from "./Beluga";
 import Blue from "./Blue";
 
 export default function Whale() {
-  const { type } = useParams();
+  const match = useMatch("/*");
+  console.log(match);
+
+  //let path = "/"
   // //donstruct 'search' out of the windows.location object
   // const { search } = useLocation();
   // const match = search.match(/type=(.*)/);
@@ -13,8 +16,10 @@ export default function Whale() {
   return (
     <>
       <h2>Whale</h2>
-      {type === "beluga" && <Beluga />}
-      {type === "blue" && <Blue />}
+      <Routes>
+        <Route path={`${match.pathnameBase}/beluga`} element={<Beluga />} />
+        <Route path={`${match.pathnameBase}/blue`} element={<Blue />} />
+      </Routes>
     </>
   );
 }
