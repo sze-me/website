@@ -15,20 +15,27 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/Manatee">Manatee</Link>
+              <Link to="/manatee">Manatee</Link>
             </li>
             <li>
-              <Link to="/Narwhal">Narwhal</Link>
+              <Link to="/narwhal">Narwhal</Link>
             </li>
             <li>
-              <Link to="/Whale">Whale</Link>
+              <Link to="/whale">Whale</Link>
+            </li>
+            <li>
+              <Link to="/whale/beluga">Beluga Whale</Link>
+            </li>
+            <li>
+              <Link to="/whale/blue">Blue Whale</Link>
             </li>
           </ul>
         </nav>
         <Routes>
-          <Route path="/Manatee" element={<Manatee />} />
-          <Route path="/Narwhal" element={<Narwhal />} />
-          <Route path="/Whale" element={<Whale />} />
+          <Route path="/manatee" element={<Manatee />} />
+          <Route path="/narwhal" element={<Narwhal />} />
+          <Route exact path="/whale" element={<Whale />} />
+          <Route path="/whale/:type" element={<Whale />} />
         </Routes>
       </BrowserRouter>
     </div>
