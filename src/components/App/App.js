@@ -1,5 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import Manatee from "../Manatee/Manatee";
 import Narwhal from "../Narwhal/Narwhal";
@@ -7,6 +8,7 @@ import Whale from "../Whale/Whale";
 import NotFound from "../NotFound/NotFound";
 
 function App() {
+  const birds = useSelector((state) => state.birds);
   return (
     <div className="wrapper">
       <h1>Marine Mammals</h1>
@@ -39,6 +41,19 @@ function App() {
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
       </BrowserRouter>
+      <ul>
+        {birds.map((bird) => (
+          <li key={bird.name}>
+            <h3>{bird.name}</h3>
+            <div>Views: {bird.views}</div>
+            <button>
+              <span role="img" aria-label="add">
+                ➕
+              </span>
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

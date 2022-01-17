@@ -7,7 +7,6 @@ export default function Whale() {
   const match = useMatch("/*");
   console.log(match);
 
-  //let path = "/"
   // //donstruct 'search' out of the windows.location object
   // const { search } = useLocation();
   // const match = search.match(/type=(.*)/);
